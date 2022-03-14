@@ -1,126 +1,72 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Nav bar stuff</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-</head>
-<body>
-<div id="nav">
-<ul>
-  <li><a class="active" href="../home">Home</a></li>
-  <li><a href="../leadership">News</a></li>
-  <li><a href="../contact">Contact</a></li>
-  <li><a href="../about">About</a></li>
-</ul>
-</div>
-<br>
-<br>
-  <p id="logoarea">Logo</p>
-<br>
-<br>
-<div class="dropdown">
-  <button class="dropbtn">FAQ</button>
-  <div class="dropdown-content">
-    <a href="#">Item 1</a>
-    <a href="#">Item 2</a>
-    <a href="#">Item 3</a>
-  </div>
-</div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-<style>
-  
-#logoarea {
-background-color: grey;
-color: white;
-margin: 70px;
-height: 450px;
-text-align: center;
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Number Guessing</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
+    <style>
+    body {
+  background-color: #59CD90;
+  color: #3FA7D6;
+  font-family: Arial;
+  padding-bottom: 20%;
 }
 
-li {
-border-right: 1px solid #bbb;
-display: inline;
-float: left;
-text-align: center;
-background: #262532;
+form {
+  line-height: 25px;
 }
 
-li a {
-text-decoration: none;
-display: block;
-color: white;
-padding: 14px;
-width: 308.5px;
+h1 {
+  font-family: Spicy Rice, Arial;
+  font-size: 4em;
+  overflow: break;
 }
 
-li a:hover {
-background-color: #666666;
-}
-
-.active {
-background-color: #2f9852;
-}
-
-ul {
-list-style-type: none;
-margin: 0px;
-padding: 0px;
-overflow: hidden;
-background: #262532;
-}
-
-#nav {
-font-family: 'Lora', serif;
-font-weight: 900;
-}
-
-/* below this section is for the dropdown button*/
-
-.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  width: 1350px;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-  
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
+.overlay {
+  width: 80%;
+  min-width: 30%;
+  margin: 3% auto;
   display: block;
-  width: 1320px;
+  padding: 2%;
+  height: 90vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 40px;
+  text-align: center;
+  overflow: auto;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
+@media only screen and (max-width: 440px) {
+  h1 {
+    font-size: 3.5em;
+  }
+}
 
 </style>
-</body>
+  </head>
+  <body>
+    <section class="overlay">
+      <h1>Guess the right number!</h1>
+      <form action="check.html" method="GET">
+        <!--Add a required attribute to the input element-->
+        <label for="guess">Enter a number between 1-10:</label>
+        <br>
+        <input type="number" name="guess" id="guess" required>
+        <br>
+        <input type="submit" id="submission" value="Submit">
+      </form>
+    </section>
+    <script>
+    const check = document.getElementById('check');
+const guess = new URLSearchParams(window.location.search);
+const num = guess.get('guess');
+// const randomNum = Math.floor(Math.random() * 10) + 1;
+
+if(num === "3"){
+  check.innerHTML = 'You guessed correctly!';
+} else {
+  check.innerHTML = `Try again...`;
+}
+</script>
+  </body>
 </html>
