@@ -122,31 +122,5 @@ font-weight: 900;
 .dropdown:hover .dropdown-content {display: block;}
 
 </style>
-
-<head>  
-<title> Verification of valid Password </title>  
-</head>  
-<script>  
-function verifyPassword() {  
-  var pw = document.getElementById("pswd").value;  
-  //check empty password field  
-  if(pw == "joe") {  
-     document.getElementById("message").innerHTML = "**Fill the password please!";  
-     return false;  
-</script>  
-
-<center>  
-<h1 style="color:green">Javatpoint</h1>  
-<h3> Verify valid password Example </h3>  
-  
-<form onsubmit ="return verifyPassword()">  
-<!-- Enter Password -->  
-<td> Enter Password </td>  
-<input type = "password" id = "pswd" value = "">   
-<span id = "message" style="color:red"> </span> <br><br>  
-  
-</form>  
-</center>  
- 
 </body>
 </html>
